@@ -13,6 +13,8 @@
 
 - (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;
 
-//- (BOOL)hasDRCornered;
+- (void)dr_topCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;
+
+- (void)dr_bottomCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;
 
 @end
