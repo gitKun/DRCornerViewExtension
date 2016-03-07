@@ -24,10 +24,7 @@
 @implementation LargeSumOfCornerCell
 
 - (void)awakeFromNib {
-    for (UILabel *label in self.labelsCollection) {
-        label.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-        
-    }
+    
 }
 
 - (void)show {
@@ -41,11 +38,6 @@
         }
         [self.button dr_cornerWithRadius:10.0 backgroundColor:self.contentView.backgroundColor];
         [self.contentView dr_cornerWithRadius:10 backgroundColor:[UIColor whiteColor]];
-    }
-    
-    for (UILabel *label in self.labelsCollection) {
-        NSInteger count = label.layer.sublayers.count;
-        //NSLog(@"label = %p   label.layer.subLayer.count = %ld   lastSubLayerClass = %@",label,count,NSStringFromClass([label.layer.sublayers[count-1] class]));
     }
     
 } 
