@@ -60,7 +60,7 @@ static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
     shapeLayer.fillColor = bgColor.CGColor;
     if ([self isKindOfClass:[UILabel class]]) {
-        //UILabel 设置 text 为 中文 也会造成图层混合
+        //UILabel 设置 text 为 中文 也会造成图层混合 (iOS8 之后UILabel的layer层改成了 _UILabelLayer 具体可阅读 http://www.jianshu.com/p/db6602413fa3 )
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.layer addSublayer:shapeLayer];
         });
@@ -82,6 +82,7 @@ static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
     shapeLayer.path = path.CGPath;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
     shapeLayer.fillColor = bgColor.CGColor;
+    //UILabel 设置 text 为 中文 也会造成图层混合 (iOS8 之后UILabel的layer层改成了 _UILabelLayer 具体可阅读 http://www.jianshu.com/p/db6602413fa3 )
     if ([self isKindOfClass:[UILabel class]]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.layer addSublayer:shapeLayer];
