@@ -17,4 +17,8 @@
 
 - (void)dr_bottomCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;
 
+- (void)removeDRCorner;
+
+- (BOOL)hasDRCornered;
+
 @end

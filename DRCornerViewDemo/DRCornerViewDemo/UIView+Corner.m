@@ -8,22 +8,25 @@
 
 #import "UIView+Corner.h"
 
+static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
+
 @implementation UIView (Corner)
 
 - (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
+    [self removeDRCorner];
     CGFloat width = CGRectGetWidth(self.bounds);
     CGFloat height = CGRectGetHeight(self.bounds);
-    UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];
+    UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];\
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.name = DRCornerLayerName;
     if (radius == -1) {
         radius = MIN(width, height)/2;
     }
-    
     [path  appendPath:[UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(radius, radius)]];
     /*
      字面意思是“奇偶”。按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点的数量。如果结果是奇数则认为点在内部，是偶数则认为点在外部
      */
-    [path setUsesEvenOddFillRule:YES];
+    //[path setUsesEvenOddFillRule:YES];
     shapeLayer.path = path.CGPath;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
     shapeLayer.fillColor = bgColor.CGColor;
@@ -38,20 +41,25 @@
 }
 
 - (void)dr_topCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
+    
+    [self removeDRCorner];
     CGFloat width = CGRectGetWidth(self.bounds);
     CGFloat height = CGRectGetHeight(self.bounds);
+    for (CALayer *subLayer in self.layer.sublayers) {
+        if ([subLayer isKindOfClass:[CAShapeLayer class]] && [subLayer.name isEqualToString:DRCornerLayerName]) {
+            [subLayer removeFromSuperlayer];
+        }
+    }
     UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     if (radius == -1) {
         radius = MIN(width, height)/2;
     }
-    
     [path  appendPath:[UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(radius, radius)]];
-    [path setUsesEvenOddFillRule:YES];
     shapeLayer.path = path.CGPath;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
     shapeLayer.fillColor = bgColor.CGColor;
-    if ([self isKindOfClass:[UILabel class]]) {
+    if ([self isKindOfClass:[UILabel class]] || [self isKindOfClass:[UIButton class]]) {
         //UILabel 设置 text 为 中文 也会造成图层混合
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.layer addSublayer:shapeLayer];
@@ -59,10 +67,10 @@
         return;
     }
     [self.layer addSublayer:shapeLayer];
-
 }
 
 - (void)dr_bottomCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
+    [self removeDRCorner];
     CGFloat width = CGRectGetWidth(self.bounds);
     CGFloat height = CGRectGetHeight(self.bounds);
     UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];
@@ -72,7 +80,6 @@
     }
     
     [path  appendPath:[UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(radius, radius)]];
-    [path setUsesEvenOddFillRule:YES];
     shapeLayer.path = path.CGPath;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
     shapeLayer.fillColor = bgColor.CGColor;
@@ -85,5 +92,26 @@
     [self.layer addSublayer:shapeLayer];
 }
 
+
+-(void)removeDRCorner {
+    if ([self hasDRCornered]) {
+        CALayer *layer = nil;
+        for (CALayer *subLayer in self.layer.sublayers) {
+            if ([subLayer.name isEqualToString:DRCornerLayerName]) {
+                layer = subLayer;
+            }
+        }
+        [layer removeFromSuperlayer];
+    }
+}
+
+- (BOOL)hasDRCornered {
+    for (CALayer *subLayer in self.layer.sublayers) {
+        if ([subLayer isKindOfClass:[CAShapeLayer class]] && [subLayer.name isEqualToString:DRCornerLayerName]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 @end
