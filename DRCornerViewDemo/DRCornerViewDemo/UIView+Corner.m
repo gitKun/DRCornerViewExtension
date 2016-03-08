@@ -16,7 +16,7 @@ static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
     [self removeDRCorner];
     CGFloat width = CGRectGetWidth(self.bounds);
     CGFloat height = CGRectGetHeight(self.bounds);
-    UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];\
+    UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.name = DRCornerLayerName;
     if (radius == -1) {
@@ -59,7 +59,7 @@ static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
     shapeLayer.path = path.CGPath;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
     shapeLayer.fillColor = bgColor.CGColor;
-    if ([self isKindOfClass:[UILabel class]] || [self isKindOfClass:[UIButton class]]) {
+    if ([self isKindOfClass:[UILabel class]]) {
         //UILabel 设置 text 为 中文 也会造成图层混合
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.layer addSublayer:shapeLayer];
@@ -78,7 +78,6 @@ static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
     if (radius == -1) {
         radius = MIN(width, height)/2;
     }
-    
     [path  appendPath:[UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(radius, radius)]];
     shapeLayer.path = path.CGPath;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
@@ -91,7 +90,6 @@ static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
     }
     [self.layer addSublayer:shapeLayer];
 }
-
 
 -(void)removeDRCorner {
     if ([self hasDRCornered]) {
