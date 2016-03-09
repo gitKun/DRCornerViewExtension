@@ -31,7 +31,7 @@
     if (!_drCornered) {
         _drCornered = YES;
         for (UIImageView *imageView in self.imagesCollection) {
-            [imageView dr_cornerWithRadius:CGRectGetHeight(imageView.bounds)/2 backgroundColor:self.contentView.backgroundColor];
+            [imageView dr_cornerWithRadius:CGRectGetHeight(imageView.bounds)/2 backgroundColor:self.contentView.backgroundColor borderColor:[UIColor colorWithRed:214/255.0 green:34/255.0 blue:56/255.0 alpha:1]];
         }
         for (UILabel *label in self.labelsCollection) {
             [label dr_cornerWithRadius:6.0 backgroundColor:self.contentView.backgroundColor];
