@@ -1,5 +1,5 @@
 //
-//  UIView+Corner.h
+//  UIView+DRCorner.h
 //  正确圆角设置方式
 //
 //  Created by apple on 16/3/2.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface UIView (Corner)
+@interface UIView (DRCorner)
 
 - (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;
 
@@ -28,5 +28,15 @@
 - (void)removeDRCorner;
 
 - (BOOL)hasDRCornered;
+
+#pragma mark --- 新增加(xib文件创建的view且能获得准确的bounds时使用)
+
+- (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor corenrRect:(CGRect)bounds;
+
+- (void)dr_topCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor corenrRect:(CGRect)bounds;
+
+- (void)dr_bottomCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor corenrRect:(CGRect)bounds;
+
+- (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderColor:(UIColor *)borderColor corenrRect:(CGRect)bounds;
 
 @end

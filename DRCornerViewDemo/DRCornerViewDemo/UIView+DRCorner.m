@@ -1,12 +1,12 @@
 //
-//  UIView+Corner.m
+//  UIView+DRCorner.m
 //  正确圆角设置方式
 //
 //  Created by apple on 16/3/2.
 //  Copyright © 2016年 kun. All rights reserved.
 //
 
-#import "UIView+Corner.h"
+#import "UIView+DRCorner.h"
 
 static NSString *DRCornerLayerName = @"DRCornerShapeLayer";
 
@@ -16,17 +16,18 @@ typedef NS_OPTIONS(NSUInteger, DRRoundCorner) {
     DRRoundCornerAll = UIRectCornerAllCorners
 };
 
-@implementation UIView (Corner)
+@implementation UIView (DRCorner)
 
-- (void)dr_roundingCorner:(DRRoundCorner)roundCorner radius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderColor:(UIColor *)borderColor {
+- (void)dr_roundingCorner:(DRRoundCorner)roundCorner radius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderColor:(UIColor *)borderColor corenrRect:(CGRect)bounds {
     [self removeDRCorner];
-    CGFloat width = CGRectGetWidth(self.bounds);
-    CGFloat height = CGRectGetHeight(self.bounds);
+    CGRect cornerBounds = CGRectEqualToRect(bounds, CGRectZero) ? self.bounds : bounds;
+    CGFloat width = CGRectGetWidth(cornerBounds);
+    CGFloat height = CGRectGetHeight(cornerBounds);
     UIBezierPath * path= [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, width, height)];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.name = DRCornerLayerName;
     UIRectCorner sysCorner = (UIRectCorner)roundCorner;
-    UIBezierPath *cornerPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:sysCorner cornerRadii:CGSizeMake(radius, radius)];
+    UIBezierPath *cornerPath = [UIBezierPath bezierPathWithRoundedRect:cornerBounds byRoundingCorners:sysCorner cornerRadii:CGSizeMake(radius, radius)];
     [path  appendPath:cornerPath];
     //[path setUsesEvenOddFillRule:YES];
     shapeLayer.path = path.CGPath;
@@ -37,8 +38,8 @@ typedef NS_OPTIONS(NSUInteger, DRRoundCorner) {
     shapeLayer.fillColor = bgColor.CGColor;
     if (borderColor) {
         //CGPathApply
-        CGFloat cornerPathLength = lengthOfCGPath(roundCorner,radius,self.bounds.size);
-        CGFloat totolPathLength = 2*(CGRectGetHeight(self.bounds)+CGRectGetWidth(self.bounds))+cornerPathLength;
+        CGFloat cornerPathLength = lengthOfCGPath(roundCorner,radius,cornerBounds.size);
+        CGFloat totolPathLength = 2*(CGRectGetHeight(cornerBounds)+CGRectGetWidth(cornerBounds))+cornerPathLength;
         shapeLayer.strokeStart = (totolPathLength-cornerPathLength)/totolPathLength;
         shapeLayer.strokeEnd = 1.0;
         shapeLayer.strokeColor = borderColor.CGColor;
@@ -54,7 +55,7 @@ typedef NS_OPTIONS(NSUInteger, DRRoundCorner) {
 }
 
 - (void)dr_roundingCorner:(DRRoundCorner)roundCorner radius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
-    [self dr_roundingCorner:roundCorner radius:radius backgroundColor:bgColor borderColor:nil];
+    [self dr_roundingCorner:roundCorner radius:radius backgroundColor:bgColor borderColor:nil corenrRect:CGRectZero];
 }
 
 /**
@@ -76,19 +77,38 @@ float lengthOfCGPath (DRRoundCorner roundingCorner,CGFloat radius,CGSize size) {
 }
 
 - (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
-    [self dr_roundingCorner:DRRoundCornerAll radius:radius backgroundColor:bgColor];
+    [self dr_cornerWithRadius:radius backgroundColor:bgColor corenrRect:CGRectZero];
 }
 
 - (void)dr_topCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
-    [self dr_roundingCorner:DRRoundCornerTop radius:radius backgroundColor:bgColor];
+    [self dr_topCornerWithRadius:radius backgroundColor:bgColor corenrRect:CGRectZero];
 }
 
 - (void)dr_bottomCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor {
-    [self dr_roundingCorner:DRRoundCornerBottom radius:radius backgroundColor:bgColor];
+    [self dr_bottomCornerWithRadius:radius backgroundColor:bgColor corenrRect:CGRectZero];
 }
 - (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderColor:(UIColor *)borderColor {
-    [self dr_roundingCorner:DRRoundCornerAll radius:radius backgroundColor:bgColor borderColor:borderColor];
+    [self dr_cornerWithRadius:radius backgroundColor:bgColor borderColor:borderColor corenrRect:CGRectZero];
 }
+
+#pragma mark --- 新增加
+
+- (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor corenrRect:(CGRect)bounds {
+    [self dr_roundingCorner:DRRoundCornerAll radius:radius backgroundColor:bgColor borderColor:[UIColor clearColor] corenrRect:bounds];
+}
+
+- (void)dr_topCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor corenrRect:(CGRect)bounds {
+    [self dr_roundingCorner:DRRoundCornerTop radius:radius backgroundColor:bgColor borderColor:[UIColor clearColor] corenrRect:bounds];
+}
+
+- (void)dr_bottomCornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor corenrRect:(CGRect)bounds {
+    [self dr_roundingCorner:DRRoundCornerBottom radius:radius backgroundColor:bgColor borderColor:[UIColor clearColor] corenrRect:bounds];
+}
+
+- (void)dr_cornerWithRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderColor:(UIColor *)borderColor corenrRect:(CGRect)bounds {
+    [self dr_roundingCorner:DRRoundCornerAll radius:radius backgroundColor:bgColor borderColor:borderColor corenrRect:bounds];
+}
+
 
 -(void)removeDRCorner {
     if ([self hasDRCornered]) {

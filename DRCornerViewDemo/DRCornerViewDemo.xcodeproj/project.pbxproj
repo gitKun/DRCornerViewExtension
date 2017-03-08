@@ -15,10 +15,14 @@
 		1805F06D1C8D2DF700AC918B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1805F06B1C8D2DF700AC918B /* LaunchScreen.storyboard */; };
 		1805F0781C8D2DF700AC918B /* DRCornerViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805F0771C8D2DF700AC918B /* DRCornerViewDemoTests.m */; };
 		1805F0831C8D2DF700AC918B /* DRCornerViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805F0821C8D2DF700AC918B /* DRCornerViewDemoUITests.m */; };
-		1805F0931C8D2E1600AC918B /* UIView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805F0921C8D2E1600AC918B /* UIView+Corner.m */; };
 		1805F0961C8D2EF000AC918B /* LargeSumOfCornerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805F0951C8D2EF000AC918B /* LargeSumOfCornerCell.m */; };
-		1805F0981C8D32A900AC918B /* 03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1805F0971C8D32A900AC918B /* 03@2x.png */; };
 		1805F09A1C8D343E00AC918B /* button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1805F0991C8D343E00AC918B /* button_bg@2x.png */; };
+		A11DB3481E6FDB040001B4FA /* 03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11DB3471E6FDB040001B4FA /* 03.jpg */; };
+		A11DB34B1E6FDCD20001B4FA /* UIView+DRCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DB34A1E6FDCD20001B4FA /* UIView+DRCorner.m */; };
+		A11DB34E1E6FDD570001B4FA /* TestCornerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DB34D1E6FDD560001B4FA /* TestCornerViewController.m */; };
+		A11DB3511E6FE00C0001B4FA /* ChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DB3501E6FE00C0001B4FA /* ChooseViewController.m */; };
+		A11DB3551E6FE1250001B4FA /* Corner1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DB3531E6FE1250001B4FA /* Corner1Cell.m */; };
+		A11DB3561E6FE1250001B4FA /* Corner1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A11DB3541E6FE1250001B4FA /* Corner1Cell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +59,19 @@
 		1805F07E1C8D2DF700AC918B /* DRCornerViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRCornerViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1805F0821C8D2DF700AC918B /* DRCornerViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRCornerViewDemoUITests.m; sourceTree = "<group>"; };
 		1805F0841C8D2DF700AC918B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1805F0911C8D2E1600AC918B /* UIView+Corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Corner.h"; sourceTree = "<group>"; };
-		1805F0921C8D2E1600AC918B /* UIView+Corner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Corner.m"; sourceTree = "<group>"; };
 		1805F0941C8D2EF000AC918B /* LargeSumOfCornerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeSumOfCornerCell.h; sourceTree = "<group>"; };
 		1805F0951C8D2EF000AC918B /* LargeSumOfCornerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargeSumOfCornerCell.m; sourceTree = "<group>"; };
-		1805F0971C8D32A900AC918B /* 03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03@2x.png"; sourceTree = "<group>"; };
 		1805F0991C8D343E00AC918B /* button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_bg@2x.png"; sourceTree = "<group>"; };
+		A11DB3471E6FDB040001B4FA /* 03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 03.jpg; sourceTree = "<group>"; };
+		A11DB3491E6FDCD20001B4FA /* UIView+DRCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DRCorner.h"; sourceTree = "<group>"; };
+		A11DB34A1E6FDCD20001B4FA /* UIView+DRCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DRCorner.m"; sourceTree = "<group>"; };
+		A11DB34C1E6FDD560001B4FA /* TestCornerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCornerViewController.h; sourceTree = "<group>"; };
+		A11DB34D1E6FDD560001B4FA /* TestCornerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCornerViewController.m; sourceTree = "<group>"; };
+		A11DB34F1E6FE00C0001B4FA /* ChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseViewController.h; sourceTree = "<group>"; };
+		A11DB3501E6FE00C0001B4FA /* ChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseViewController.m; sourceTree = "<group>"; };
+		A11DB3521E6FE1250001B4FA /* Corner1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Corner1Cell.h; sourceTree = "<group>"; };
+		A11DB3531E6FE1250001B4FA /* Corner1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Corner1Cell.m; sourceTree = "<group>"; };
+		A11DB3541E6FE1250001B4FA /* Corner1Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Corner1Cell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,11 +125,18 @@
 				1805F0901C8D2E0300AC918B /* Class */,
 				1805F0601C8D2DF700AC918B /* AppDelegate.h */,
 				1805F0611C8D2DF700AC918B /* AppDelegate.m */,
+				A11DB34F1E6FE00C0001B4FA /* ChooseViewController.h */,
+				A11DB3501E6FE00C0001B4FA /* ChooseViewController.m */,
 				1805F0631C8D2DF700AC918B /* ViewController.h */,
 				1805F0641C8D2DF700AC918B /* ViewController.m */,
+				A11DB34C1E6FDD560001B4FA /* TestCornerViewController.h */,
+				A11DB34D1E6FDD560001B4FA /* TestCornerViewController.m */,
 				1805F0941C8D2EF000AC918B /* LargeSumOfCornerCell.h */,
 				1805F0951C8D2EF000AC918B /* LargeSumOfCornerCell.m */,
-				1805F0971C8D32A900AC918B /* 03@2x.png */,
+				A11DB3521E6FE1250001B4FA /* Corner1Cell.h */,
+				A11DB3531E6FE1250001B4FA /* Corner1Cell.m */,
+				A11DB3541E6FE1250001B4FA /* Corner1Cell.xib */,
+				A11DB3471E6FDB040001B4FA /* 03.jpg */,
 				1805F0991C8D343E00AC918B /* button_bg@2x.png */,
 				1805F0661C8D2DF700AC918B /* Main.storyboard */,
 				1805F0691C8D2DF700AC918B /* Assets.xcassets */,
@@ -158,8 +176,8 @@
 		1805F0901C8D2E0300AC918B /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				1805F0911C8D2E1600AC918B /* UIView+Corner.h */,
-				1805F0921C8D2E1600AC918B /* UIView+Corner.m */,
+				A11DB3491E6FDCD20001B4FA /* UIView+DRCorner.h */,
+				A11DB34A1E6FDCD20001B4FA /* UIView+DRCorner.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -226,7 +244,7 @@
 		1805F0521C8D2DF700AC918B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = kun;
 				TargetAttributes = {
 					1805F0591C8D2DF700AC918B = {
@@ -267,8 +285,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11DB3481E6FDB040001B4FA /* 03.jpg in Resources */,
 				1805F06D1C8D2DF700AC918B /* LaunchScreen.storyboard in Resources */,
-				1805F0981C8D32A900AC918B /* 03@2x.png in Resources */,
+				A11DB3561E6FE1250001B4FA /* Corner1Cell.xib in Resources */,
 				1805F06A1C8D2DF700AC918B /* Assets.xcassets in Resources */,
 				1805F09A1C8D343E00AC918B /* button_bg@2x.png in Resources */,
 				1805F0681C8D2DF700AC918B /* Main.storyboard in Resources */,
@@ -297,10 +316,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1805F0651C8D2DF700AC918B /* ViewController.m in Sources */,
+				A11DB34E1E6FDD570001B4FA /* TestCornerViewController.m in Sources */,
+				A11DB3551E6FE1250001B4FA /* Corner1Cell.m in Sources */,
 				1805F0961C8D2EF000AC918B /* LargeSumOfCornerCell.m in Sources */,
+				A11DB3511E6FE00C0001B4FA /* ChooseViewController.m in Sources */,
 				1805F0621C8D2DF700AC918B /* AppDelegate.m in Sources */,
 				1805F05F1C8D2DF700AC918B /* main.m in Sources */,
-				1805F0931C8D2E1600AC918B /* UIView+Corner.m in Sources */,
+				A11DB34B1E6FDCD20001B4FA /* UIView+DRCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,8 +390,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -411,8 +435,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -524,6 +550,7 @@
 				1805F0891C8D2DF700AC918B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1805F08A1C8D2DF700AC918B /* Build configuration list for PBXNativeTarget "DRCornerViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +559,7 @@
 				1805F08C1C8D2DF700AC918B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1805F08D1C8D2DF700AC918B /* Build configuration list for PBXNativeTarget "DRCornerViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +568,7 @@
 				1805F08F1C8D2DF700AC918B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

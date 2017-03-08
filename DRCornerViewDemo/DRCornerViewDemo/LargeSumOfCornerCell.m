@@ -7,7 +7,7 @@
 //
 
 #import "LargeSumOfCornerCell.h"
-#import "UIView+Corner.h"
+#import "UIView+DRCorner.h"
 
 @interface LargeSumOfCornerCell ()
 
@@ -24,7 +24,7 @@
 @implementation LargeSumOfCornerCell
 
 - (void)awakeFromNib {
-    
+    [super awakeFromNib];
 }
 
 - (void)show {
